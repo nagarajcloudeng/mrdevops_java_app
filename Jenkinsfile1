@@ -2,8 +2,9 @@
 pipeline {
     agent any
 
-    parameters
-         choice(name : 'action' , choices:'create/ndelete' , description: 'choose create/destory')
+    parameters{
+         choice(name: 'action' , choices:'create/ndelete' , description: 'choose create/destory')
+    }
       stages {
         stage ('git scm checkout') {
             when {expression { params.action == 'create'} }
