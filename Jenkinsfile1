@@ -21,5 +21,13 @@ pipeline {
                 }
             }
         }
+        stage ('integaration test'){
+            when { expression { params.action == 'create' } }
+             steps {
+                script {
+                    sh 'mvn verify -DskipUnitTests'
+                }
+             }
+        }
       }
 }
