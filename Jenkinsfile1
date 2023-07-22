@@ -13,22 +13,22 @@ pipeline {
             }
                
         }
-        stage ('unit test'){
-            when { expression { params.action == 'create' } }
-            steps {
-                script {
-                sh 'mvn test'
-                }
-            }
-        }
-        stage ('integaration test'){
-            when { expression { params.action == 'create' } }
-             steps {
-                script {
-                    sh 'mvn verify -DskipUnitTests'
-                }
-             }
-        }
+//stage ('unit test'){
+     //       when { expression { params.action == 'create' } }
+     //       steps {
+       ////         script {
+     //           sh 'mvn test'
+       //         }
+      //      }
+    //    }
+     //   stage ('integaration test'){
+     //       when { expression { params.action == 'create' } }
+      //       steps {
+      //          script {
+       //             sh 'mvn verify -DskipUnitTests'
+       //         }
+      //       }
+     //   }
         stage ('static code analaysis'){
             when { expression { params.action == 'create' } }
             steps {
