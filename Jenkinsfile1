@@ -1,0 +1,16 @@
+
+pipeline {
+    agent any
+
+    parameters
+         choice(name : 'action' , choices:'create/ndelete' , description: 'choose create/destory')
+      stages {
+        stage ('git scm checkout') {
+            when {expression { params.action == 'create'} }
+            steps {
+                git branch: 'main', url: 'https://github.com/nagarajcloudeng/mrdevops_java_app.git'
+            }
+               
+        }
+      }
+}
