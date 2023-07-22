@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     parameters{
-         choice(name: 'action' , choices: 'create/ndelete' , description: 'choose create/destory')
+         choice(name: 'action' , choices: 'create' , description: 'choose create/destory')
     }
       stages {
         stage ('git scm checkout') {
